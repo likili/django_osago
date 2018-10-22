@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% load staticfiles %}
+
+{% block title %} {{ page_title }} {% endblock title %}
+
+
+{% block nav_class_osago %}active{% endblock %}
+
+
+{% block main_content %}
+{% include "inc_sticky.html" %}
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form method="post" class="form-horizontal" role="form">
+  <div id="" >
+    {% for form in forms %}
+      <div class="" role="form">
+        <div class="form-group">
+          {# { form|add_label_class:"col-lg-4 control-label" } #}
+        <div class="col-lg-5">
+         {{ form|add_class:"form-control input-sm"|attr:"placeholder=for" }}
+        </div>
+        </div>
+
+      </div>
+    {% endfor %}
+
+    <div class="">
+
+    </div>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% endblock main_content %}
